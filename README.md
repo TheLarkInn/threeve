@@ -1,6 +1,7 @@
-# webvr-starter
+# threeve
 
-> A WebVR Starter w/ VueJS
+
+
 
 ## Build Setup
 
