@@ -5,23 +5,22 @@
 </template>
 <script>
 import { Scene } from 'three'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  data () {
-    return {
-    }
-  },
   methods: {
+    ...mapActions(['setSceneInstance']),
     onInit (initValue) {
       this.$emit('init', initValue)
     }
   },
+  computed: {
+    ...mapGetters(['getScene'])
+  },
   mounted () {
     const scene = new Scene()
+    this.setSceneInstance(scene)
     this.onInit(scene)
   }
 }
 </script>
-<style>
-
-</style>

@@ -3,17 +3,17 @@
 
 <script>
 import {MeshBasicMaterial} from 'three'
+import {mapActions} from 'vuex'
+
 export default {
   props: ['color'],
   methods: {
-    onInit (initValue) {
-      this.$emit('init', initValue)
-    }
+    ...mapActions(['setMeshMaterial'])
   },
   mounted () {
     const {color} = this
     const material = new MeshBasicMaterial({color})
-    this.onInit(material)
+    this.setMeshMaterial(material)
   }
 }
 </script>

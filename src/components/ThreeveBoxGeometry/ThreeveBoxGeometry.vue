@@ -3,18 +3,17 @@
 
 <script>
 import {BoxGeometry} from 'three'
+import {mapActions} from 'vuex'
+
 export default {
   props: ['x', 'y', 'z'],
   methods: {
-    onInit (initValue) {
-      this.$emit('init', initValue)
-    }
+    ...mapActions(['setMeshGeometry'])
   },
   mounted () {
     const {x, y, z} = this
     const geometry = new BoxGeometry(x, y, z)
-    debugger; //eslint-disable-line
-    this.onInit(geometry)
+    this.setMeshGeometry(geometry)
   }
 }
 </script>
