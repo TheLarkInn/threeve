@@ -1,4 +1,8 @@
-<template></template>
+<template>
+  <div>
+    <slot></slot>
+  </div>
+</template>
 <script>
 import { WebGLRenderer } from 'three'
 
@@ -12,14 +16,19 @@ export default {
     }
   },
   data () {
-    return {
-      camera: null
+    return {}
+  },
+  methods: {
+    onInit (initValue) {
+      this.$emit('init', initValue)
     }
   },
   mounted () {
     const {height, width} = this
-    this.renderer = new WebGLRenderer()
-    this.renderer.setSize(width, height)
+    const renderer = new WebGLRenderer()
+    renderer.setSize(width, height)
+    this.$el.appendChild(renderer.domElement)
+    this.onInit(renderer)
   }
 }
 </script>

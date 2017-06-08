@@ -1,7 +1,7 @@
 {
-  "name": "webvr-starter",
+  "name": "threeve",
   "version": "1.0.0",
-  "description": "A WebVR Starter w/ VueJS",
+  "description": "A Vue Component Library for ThreeJS",
   "author": "sean.larkin1@gmail.com",
   "private": true,
   "scripts": {

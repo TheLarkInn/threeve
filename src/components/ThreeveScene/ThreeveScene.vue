@@ -9,11 +9,16 @@ import { Scene } from 'three'
 export default {
   data () {
     return {
-      scene: null
+    }
+  },
+  methods: {
+    onInit (initValue) {
+      this.$emit('init', initValue)
     }
   },
   mounted () {
-    this.scene = new Scene()
+    const scene = new Scene()
+    this.onInit(scene)
   }
 }
 </script>

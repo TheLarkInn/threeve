@@ -1,4 +1,8 @@
-<template></template>
+<template>
+  <div>
+    <slot></slot>
+  </div>
+</template>
 <script>
 import { PerspectiveCamera } from 'three'
 
@@ -22,11 +26,15 @@ export default {
       camera: null
     }
   },
+  methods: {
+    onInit (camera) {
+      this.$emit('init', camera)
+    }
+  },
   mounted () {
-    this.scene = new PerspectiveCamera()
+    this.camera = new PerspectiveCamera(this.fov, this.aspect, this.near, this.far)
+    this.onInit(this.camera)
   }
 }
 </script>
-<style>
-
-</style>
+<style></style>
