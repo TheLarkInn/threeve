@@ -6,11 +6,18 @@
         <threeve-scene>
           <threeve-mesh :name="meshCubeName">
             <threeve-box-geometry x="1" y="1" z="1"></threeve-box-geometry>
-            <threeve-material :color="0x00ff00"></threeve-material>
+            <threeve-material
+              :morph-targets="true"
+              :wireframe="false"
+              :wireframe-linewidth="0.3"
+              :wireframe-linecap="'round'"
+              :color="0x00ff00"
+            >
+            </threeve-material>
           </threeve-mesh>
         </threeve-scene>
       </threeve-camera>
-      <threeve-renderer-animator
+      <threeve-renderer-animator v-if="isReadyToRender(['cube'])"
         :camera="getCamera"
         :scene="getScene.instance"
         :renderer="getRenderer"
@@ -43,7 +50,9 @@ export default {
     animateThis () {
       return ['cube']
     },
-    ...mapGetters(['getCamera', 'getRenderer', 'getScene', 'getSceneObject'])
+    ...mapGetters(['getCamera', 'getRenderer', 'getScene', 'getSceneObject', 'isReadyToRender'])
+  },
+  mounted () {
   }
 }
 </script>

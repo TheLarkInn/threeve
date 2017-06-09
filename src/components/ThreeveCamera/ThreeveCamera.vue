@@ -21,19 +21,15 @@ export default {
       type: Number
     }
   },
-  data () {
-    return {
-      camera: null
-    }
-  },
   methods: {
     onInit (camera) {
       this.$emit('init', camera)
     }
   },
   mounted () {
-    this.camera = new PerspectiveCamera(this.fov, this.aspect, this.near, this.far)
-    this.onInit(this.camera)
+    const camera = new PerspectiveCamera(this.fov, this.aspect, this.near, this.far)
+    camera.position.z = 1.6
+    this.onInit(camera)
   }
 }
 </script>

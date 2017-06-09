@@ -1,8 +1,8 @@
-export const setRenderer = (state, payload) => {
-  state.renderer = payload
+export const setRenderer = (state, renderer) => {
+  state.renderer = renderer
 }
 
-export const setCamera = (state, payload) => {
-  state.camera = payload
+export const setCamera = (state, camera) => {
+  state.camera = camera
 }
 

@@ -4,5 +4,12 @@ export const setSceneInstance = (state, instance) => {
 
 export const addToScene = (state, {object, name}) => {
   state.scene.instance.add(object)
-  state.scene.objects.set(name, object)
+
+  const newObjects = (objects) => {
+    objects[name] = object
+
+    return objects
+  }
+
+  state.scene.objects = {...newObjects(state.scene.objects)}
 }

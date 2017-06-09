@@ -9,8 +9,8 @@ import * as getters from './getters'
 Vue.use(Vuex)
 
 const state = {
-  renderer: null,
-  camera: null,
+  renderer: undefined,
+  camera: undefined,
   history: []
 }
 

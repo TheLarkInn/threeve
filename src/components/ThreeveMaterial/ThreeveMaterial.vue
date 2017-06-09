@@ -6,13 +6,19 @@ import {MeshBasicMaterial} from 'three'
 import {mapActions} from 'vuex'
 
 export default {
-  props: ['color'],
+  props: ['color', 'wireframe', 'wireframeLinecap', 'wireframeLinewidth', 'morphTarget'],
   methods: {
     ...mapActions(['setMeshMaterial'])
   },
   mounted () {
-    const {color} = this
-    const material = new MeshBasicMaterial({color})
+    const {color, wireframe, wireframeLinecap, wireframeLinewidth, morphTarget} = this
+    const material = new MeshBasicMaterial({
+      color,
+      wireframe,
+      wireframeLinecap,
+      wireframeLinewidth,
+      morphTarget
+    })
     this.setMeshMaterial(material)
   }
 }

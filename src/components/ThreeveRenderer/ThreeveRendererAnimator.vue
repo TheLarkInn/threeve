@@ -6,21 +6,26 @@ import {mapGetters} from 'vuex'
 export default {
   props: ['camera', 'scene', 'renderer', 'refsToAnimate'],
   computed: {
-    shouldRender () {
-      return (typeof this.getSceneObject('cube') !== undefined && this.renderer && this.scene && this.camera)
+    cube () {
+      return this.getSceneObject('cube')
     },
     ...mapGetters(['getSceneObject'])
   },
   mounted () {
-    if (this.camera && this.camera.position) {
-      this.camera.position.z = 2
-    }
+    const {camera, scene, renderer, cube} = this
 
-    const render = () => {
+    console.log(cube)
+    function render () {
       requestAnimationFrame(render)
-      this.renderer && this.renderer.render(this.scene, this.camera)
-    }
 
+      cube.rotation.x += 0.1
+
+      if (cube.rotation.x >= 1) {
+        cube.rotation.y += 0.1
+      }
+
+      renderer.render(scene, camera)
+    }
     render()
   }
 }
