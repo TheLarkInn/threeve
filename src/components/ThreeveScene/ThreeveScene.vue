@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import { Scene } from 'three'
+import {Scene} from 'three'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {

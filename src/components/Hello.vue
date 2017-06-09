@@ -2,7 +2,7 @@
   <div class="hello">
     {{ msg }}
     <threeve-renderer @init="setRenderer" :width="width" :height="height">
-      <threeve-camera :fov="75" :aspect="getCameraAspect()" @init="setCamera">
+      <threeve-camera :fov="75" :aspect="getCameraAspect()" :near="0.1" :far="1000" @init="setCamera">
         <threeve-scene>
           <threeve-mesh :name="meshCubeName">
             <threeve-box-geometry x="1" y="1" z="1"></threeve-box-geometry>
@@ -29,7 +29,7 @@ export default {
     return {
       meshCubeName: 'cube',
       width: 500,
-      height: 400,
+      height: 500,
       msg: 'VueJS - ThreeJS - PWA'
     }
   },
