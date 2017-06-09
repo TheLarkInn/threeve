@@ -25,7 +25,7 @@ export default {
   },
   mounted () {
     const {height, width} = this
-    const renderer = new WebGLRenderer()
+    const renderer = new WebGLRenderer({antialias: true})
     renderer.setSize(width, height)
     this.$el.appendChild(renderer.domElement)
     this.onInit(renderer)
